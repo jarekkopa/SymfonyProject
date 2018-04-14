@@ -9,13 +9,13 @@ class UserController extends Controller
 {
     public function login()
     {
-        return $this->render('user/index.html.twig', [
+        return $this->render('user/login.html.twig', [
             'controller_name' => 'UserController',
         ]);
     }
     public function showUserDetails($id)
     {
-        return $this->render('user/index.html.twig', [
+        return $this->render('user/showUserDetails.html.twig', [
             'controller_name' => 'UserController',
         ]);
     }

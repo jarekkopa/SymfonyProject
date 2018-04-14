@@ -9,7 +9,7 @@ class CategoryController extends Controller
 {
     public function showFilms($id)
     {
-        return $this->render('category/index.html.twig', [
+        return $this->render('category/showFilms.html.twig', [
             'controller_name' => 'CategoryController',
         ]);
     }
