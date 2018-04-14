@@ -15,7 +15,7 @@ class UserController extends Controller
             'controller_name' => 'UserController',
         ]);
     }
-    public function showUserDetails()
+    public function showUserDetails($id)
     {
         \dump(get_called_class());
         die();

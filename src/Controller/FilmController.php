@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class FilmController extends Controller
 {
-    public function showFilm()
+    public function showFilm($id)
     {
         \dump(get_called_class());
         die();
