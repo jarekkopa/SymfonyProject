@@ -7,11 +7,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class FilmController extends Controller
 {
-    /**
-     * @Route("/film", name="film")
-     */
-    public function index()
+    public function showFilm()
     {
+        \dump(get_called_class());
+        die();
         return $this->render('film/index.html.twig', [
             'controller_name' => 'FilmController',
         ]);

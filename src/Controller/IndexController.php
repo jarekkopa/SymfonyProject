@@ -7,11 +7,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class IndexController extends Controller
 {
-    /**
-     * @Route("/index", name="index")
-     */
     public function index()
     {
+        \dump(get_called_class());
+        die();
         return $this->render('index/index.html.twig', [
             'controller_name' => 'IndexController',
         ]);

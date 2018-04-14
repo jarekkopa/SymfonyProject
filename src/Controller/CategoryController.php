@@ -7,11 +7,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class CategoryController extends Controller
 {
-    /**
-     * @Route("/category", name="category")
-     */
-    public function index()
+    public function showFilms()
     {
+        \dump(get_called_class());
+        die();
         return $this->render('category/index.html.twig', [
             'controller_name' => 'CategoryController',
         ]);
