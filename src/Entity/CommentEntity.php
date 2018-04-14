@@ -21,6 +21,12 @@ class CommentEntity
      */
     private $comment;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\UserEntity", inversedBy="comment")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
     public function getId()
     {
         return $this->id;
@@ -34,6 +40,18 @@ class CommentEntity
     public function setComment(string $comment): self
     {
         $this->comment = $comment;
+
+        return $this;
+    }
+
+    public function getUser(): ?UserEntity
+    {
+        return $this->user;
+    }
+
+    public function setUser(?UserEntity $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
