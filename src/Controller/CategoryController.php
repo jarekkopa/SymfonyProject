@@ -37,7 +37,7 @@ class CategoryController extends Controller
         $categories = $this
             ->getDoctrine()
             ->getRepository(categoryEntity::class)
-            ->findAll();
+            ->findHiddenCategories();
 
         return $this->render('category/showCategories.html.twig', [
             'categories' => $categories,
