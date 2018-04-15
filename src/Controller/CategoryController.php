@@ -4,12 +4,13 @@ namespace App\Controller;
 
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use App\Entity\CategoryEntity;
 
 class CategoryController extends Controller
 {
     public function showFilms($id)
     {
-        $category = new CategoryEnity();
+        $category = new CategoryEntity();
         $category->setName('Symfony');
 
         $entityManager = $this->getDoctrine()->getManager();
