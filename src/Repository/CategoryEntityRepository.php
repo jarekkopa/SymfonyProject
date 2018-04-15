@@ -22,7 +22,7 @@ class CategoryEntityRepository extends ServiceEntityRepository
     public function findHiddenCategories()
     {
         return $this->findBy([
-            'hidden' => null,
+            'hidden' => true,
         ]);
     }
 

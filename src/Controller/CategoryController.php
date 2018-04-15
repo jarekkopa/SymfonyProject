@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use App\Entity\CategoryEntity;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\Request;
 
 
 class CategoryController extends Controller
@@ -24,7 +25,7 @@ class CategoryController extends Controller
         ]);
     }
 
-    public function addCategory()
+    public function addCategory(Request $request)
     {
         // $category = new CategoryEntity();
         // $category->setName('PHP');
@@ -40,8 +41,17 @@ class CategoryController extends Controller
             ->add('save', SubmitType::class)
             ->getForm();
 
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($category);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('categories'); 
+        }
+
         return $this->render('category/new.html.twig', [
-            'controller_name' => 'CategoryController', 
             'form' => $form->createView(),
         ]);
 
