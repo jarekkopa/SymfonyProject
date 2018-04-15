@@ -10,6 +10,12 @@ class CategoryController extends Controller
 {
     public function showFilms($id)
     {
+        $category = $this
+            ->getDoctrine()
+            ->getRepository(categoryEntity::class)
+            ->find($id);
+        \dump($category);
+            
         return $this->render('category/showFilms.html.twig', [
             'controller_name' => 'CategoryController',
         ]);
@@ -18,7 +24,7 @@ class CategoryController extends Controller
     public function addCategory()
     {
         $category = new CategoryEntity();
-        $category->setName('Symfony');
+        $category->setName('PHP');
 
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($category);
