@@ -9,6 +9,13 @@ class CategoryController extends Controller
 {
     public function showFilms($id)
     {
+        $category = new CategoryEnity();
+        $category->setName('Symfony');
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($category);
+        $entityManager->flush();
+
         return $this->render('category/showFilms.html.twig', [
             'controller_name' => 'CategoryController',
         ]);
