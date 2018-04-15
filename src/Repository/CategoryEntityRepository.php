@@ -28,9 +28,11 @@ class CategoryEntityRepository extends ServiceEntityRepository
 
     public function findCategoriesByLetter($letter)
     {
-        return $this->findBy([
-            'name' => $letter . '%',
-        ]);
+        return $this->createQueryBuilder('category')
+            ->where('category.name LIKE :letter')
+            ->setParameter('letter', $letter . '%')
+            ->getQuery()
+            ->getResult();
     }
 
 //    /**
