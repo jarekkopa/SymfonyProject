@@ -5,6 +5,9 @@ namespace App\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use App\Entity\CategoryEntity;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+
 
 class CategoryController extends Controller
 {
@@ -23,13 +26,25 @@ class CategoryController extends Controller
 
     public function addCategory()
     {
-        $category = new CategoryEntity();
-        $category->setName('PHP');
+        // $category = new CategoryEntity();
+        // $category->setName('PHP');
 
-        $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->persist($category);
-        $entityManager->flush();
-        return $this->redirectToRoute('index');
+        // $entityManager = $this->getDoctrine()->getManager();
+        // $entityManager->persist($category);
+        // $entityManager->flush();
+        // return $this->redirectToRoute('index');
+
+        $category = new CategoryEntity();
+        $form = $this->createFormBuilder($category)
+            ->add('name', TextType::class)
+            ->add('save', SubmitType::class)
+            ->getForm();
+
+        return $this->render('category/new.html.twig', [
+            'controller_name' => 'CategoryController', 
+            'form' => $form->createView(),
+        ]);
+
     }
 
     public function showCategories()
