@@ -13,4 +13,6 @@ login:
 user:
    path: /user/{id}
    controller: App\Controller\UserController::showUserDetails
-
+newCategory:
+   path: /new/category
+   controller: App\Controller\CategoryController::addCategory
