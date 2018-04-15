@@ -16,10 +16,10 @@
 <div class="example-wrapper">
     <ul>
         {% for category in categories %}
-            <li>{{ category.getName }}</li>
+            <li><a href= "category/{{category.getId}}">{{ category.getName }}</a></li>
         {% else %}
             Brak kategorii.
-        {% endfor %}}
+        {% endfor %}
     </ul>
 </div>
 {% endblock %}
