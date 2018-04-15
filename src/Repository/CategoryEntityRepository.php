@@ -26,6 +26,13 @@ class CategoryEntityRepository extends ServiceEntityRepository
         ]);
     }
 
+    public function findCategoriesByLetter($letter)
+    {
+        return $this->findBy([
+            'name' => $letter . '%',
+        ]);
+    }
+
 //    /**
 //     * @return CategoryEntity[] Returns an array of CategoryEntity objects
 //     */

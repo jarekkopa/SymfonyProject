@@ -19,3 +19,6 @@ newCategory:
 categories:
    path: /category
    controller: App\Controller\CategoryController::showCategories
+filter:
+   path: /category/filter/{letter}
+   controller: App\Controller\CategoryController::filter
