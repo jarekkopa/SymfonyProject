@@ -31,4 +31,16 @@ class CategoryController extends Controller
         $entityManager->flush();
         return $this->redirectToRoute('index');
     }
+
+    public function showCategories()
+    {
+        $categories = $this
+            ->getDoctrine()
+            ->getRepository(categoryEntity::class)
+            ->findAll();
+
+        return $this->render('category/showCategories.html.twig', [
+            'categories' => $categories,
+        ]);
+    }
 }

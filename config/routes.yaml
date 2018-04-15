@@ -16,3 +16,6 @@ user:
 newCategory:
    path: /new/category
    controller: App\Controller\CategoryController::addCategory
+categories:
+   path: /category
+   controller: App\Controller\CategoryController::showCategories
