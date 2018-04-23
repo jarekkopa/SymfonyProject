@@ -4,6 +4,10 @@ namespace App\Controller;
 
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use App\Entity\UserEntity;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\Request;
 
 class UserController extends Controller
 {
@@ -17,6 +21,29 @@ class UserController extends Controller
     {
         return $this->render('user/showUserDetails.html.twig', [
             'controller_name' => 'UserController',
+        ]);
+    }
+    public function addUser()
+    {
+        $newUser = new UserEntity();
+        $form = $this->createFormBuilder($newUser)
+            ->add('name', TextType::class)
+            ->add('save', SubmitType::class)
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($newUser);
+            $entityManager->flush();
+    
+            return $this->redirectToRoute('categories'); 
+        }
+
+        return $this->render('user/new.html.twig', [
+            'controller_name' => 'UserController',
+            'form' => $form->createView(),
         ]);
     }
 }
