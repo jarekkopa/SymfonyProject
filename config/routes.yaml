@@ -22,3 +22,6 @@ categories:
 filter:
    path: /category/filter/{letter}
    controller: App\Controller\CategoryController::filter
+new-user:
+   path: /user/new
+   controller: App\Controller\UserController::addUser
