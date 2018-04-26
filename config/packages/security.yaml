@@ -3,7 +3,7 @@ security:
     encoders:
        Symfony\Component\Security\Core\User\User: plaintext
     providers:
-       in_memory:
+        providers:
            memory:
                users:
                    jaro:
@@ -30,4 +30,4 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
-        - { path: ^/new, roles: ROLE_ADMIN }
+        - { path: ^/new/category, roles: ROLE_ADMIN }

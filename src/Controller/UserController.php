@@ -23,11 +23,13 @@ class UserController extends Controller
             'controller_name' => 'UserController',
         ]);
     }
-    public function addUser()
+    public function addUser(Request $request)
     {
         $newUser = new UserEntity();
         $form = $this->createFormBuilder($newUser)
-            ->add('name', TextType::class)
+            ->add('login', TextType::class)
+            ->add('password', TextType::class)
+            ->add('email', TextType::class)
             ->add('save', SubmitType::class)
             ->getForm();
 

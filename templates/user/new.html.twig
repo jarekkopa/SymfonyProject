@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nowy użytkownik{% endblock %}
+{% block header %}Dodaj nowego użytkownika{% endblock header %}
+{% block body %}
+{{ form_start(form) }}
+{{ form_widget(form) }}
+{{ form_end(form) }}
+{% endblock %}
