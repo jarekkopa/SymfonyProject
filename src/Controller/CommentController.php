@@ -31,7 +31,7 @@ class CommentController extends Controller
             $entityManager->persist($comment);
             $entityManager->flush();
         
-            return $this->redirectToRoute('categories'); 
+            return $this->redirectToRoute('users'); 
         }
 
         return $this->render('comment/addComment.html.twig', [

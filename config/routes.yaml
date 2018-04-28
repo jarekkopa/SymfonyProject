@@ -31,3 +31,5 @@ users:
 new-comment:
    path: /new/comment
    controller: App\Controller\CommentController::newComment
+logout:
+   path: /logout
