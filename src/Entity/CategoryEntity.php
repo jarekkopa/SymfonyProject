@@ -50,7 +50,7 @@ class CategoryEntity
 
     public function getName(): ?string
     {
-        return $this->name;
+        return "Imie to: $this->name";
     }
 
     public function setName(string $name): self
