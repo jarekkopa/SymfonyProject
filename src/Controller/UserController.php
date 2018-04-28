@@ -48,4 +48,16 @@ class UserController extends Controller
             'form' => $form->createView(),
         ]);
     }
+
+    public function showUsers()
+    {
+        $users = $this
+            ->getDoctrine()
+            ->getRepository(UserEntity::class)
+            ->findAll();
+
+        return $this->render('user/showUsers.html.twig', [
+            'users' => $users,
+        ]);
+    }
 }
