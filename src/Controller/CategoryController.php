@@ -45,6 +45,9 @@ class CategoryController extends Controller
 
         if($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+                if($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+                    $category->setHidden(false);
+                }
             $entityManager->persist($category);
             $entityManager->flush();
 

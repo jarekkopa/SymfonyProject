@@ -9,6 +9,9 @@ security:
                    jaro:
                        password: jaro123
                        roles: 'ROLE_ADMIN'
+                   marian:
+                       password: marian123
+                       roles: 'ROLE_USER'
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
