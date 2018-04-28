@@ -28,3 +28,6 @@ new-user:
 users:
    path: /users
    controller: App\Controller\UserController::showUsers
+new-comment:
+   path: /new/comment
+   controller: App\Controller\CommentController::newComment
