@@ -12,4 +12,11 @@ class CategoryEntityTest extends TestCase
         $category->setName('PHPUnit');
         $this->assertEquals('PHPUnit', $category->getName());
     }
+
+    public function testIsHiddenIsBool()
+    {
+        $hidden = new CategoryEntity();
+        $hidden->setHidden(true);
+        $this->assertFalse($hidden->getHidden());
+    }
 }
