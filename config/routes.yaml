@@ -33,3 +33,6 @@ new-comment:
    controller: App\Controller\CommentController::newComment
 logout:
    path: /logout
+remove-category:
+   path: /remove/category/{id}
+   controller: App\Controller\CategoryController::removeCategory

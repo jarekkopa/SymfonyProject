@@ -37,3 +37,4 @@ security:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
         - { path: ^/new/category, roles: ROLE_ADMIN }
+        - { path: ^/remove/category, roles: ROLE_ADMIN }

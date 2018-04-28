@@ -14,13 +14,20 @@
 </style>
 
 <div class="example-wrapper">
-    Ilosc kategori: {{categories | length}}<br>
+    Ilosc kategori: {{categories | length}}
+    <br>
     <ul>
         {% for category in categories %}
-            <li><a href= "category/{{category.getId}}">{{ category }}</a></li>
-        {% else %}
-            Brak kategorii.
-        {% endfor %}
+        <li>
+            <p>
+                <a href="category/{{category.getId}}">{{ category }}</a>
+                {% if is_granted('ROLE_ADMIN') %}
+                <a class="btn btn-danger btn-sm float-right" href="/remove/category/{{ category.getId }}">
+                    Usun</a>
+                {% endif %}
+            </p>
+        </li>
+        {% else %} Brak kategorii. {% endfor %}
     </ul>
 </div>
 {% endblock %}

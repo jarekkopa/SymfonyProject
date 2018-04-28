@@ -83,4 +83,20 @@ class CategoryController extends Controller
             'categories' => $categories,
         ]);
     }
+
+    public function removeCategory(int $id)
+    {
+        $category = $this
+            ->getDoctrine()
+            ->getRepository(CategoryEntity::class)
+            ->find($id);
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($category);
+        $entityManager->flush();
+
+        return $this->render('category/showFilms.html.twig', [
+            'controller_name' => 'CategoryController',
+        ]);
+    }
 }
