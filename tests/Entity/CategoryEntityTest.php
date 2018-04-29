@@ -19,9 +19,24 @@ class CategoryEntityTest extends TestCase
         $hidden->setHidden(true);
         $this->assertTrue($hidden->getHidden());
     }
-
-    public function getUrl()
+    /**
+     * @dataProvider namesAndUrlsProvider
+     */
+    public function testCanSetUrl($name, $url)
     {
-        return strlolower($this->name);
+        $category = new CategoryEntity();
+        $category->setName($name);
+
+        $this->assertEquals($url, $category->getUrl());
+    }
+
+    public function namesAndUrlsProvider()
+    {
+        return[
+            ['aaaa', 'aaaa'],
+            ['1 1 1', '1 1 1'],
+            ['ABCDEXYZ', 'abcdexyz'],
+            ['Symfony', 'symfony'],
+        ];
     }
 }

@@ -99,4 +99,9 @@ class CategoryEntity
 
         return $this;
     }
+
+    public function getUrl()
+    {
+        return strtolower($this->name);
+    }
 }
