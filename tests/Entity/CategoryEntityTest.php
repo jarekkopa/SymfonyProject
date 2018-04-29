@@ -19,4 +19,9 @@ class CategoryEntityTest extends TestCase
         $hidden->setHidden(true);
         $this->assertTrue($hidden->getHidden());
     }
+
+    public function getUrl()
+    {
+        return strlolower($this->name);
+    }
 }
